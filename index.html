@@ -3,30 +3,33 @@
 <body>
 <p id="demo"></p>
 <script>
-var day;
-switch (new Date().getDay()) {
-  case 0:
-    day = "Sunday";
-    break;
-  case 1:
-    day = "Monday";
-    break;
-  case 2:
-    day = "Tuesday";
-    break;
-  case 3:
-    day = "Wednesday";
-    break;
-  case 4:
-    day = "Thursday";
-    break;
-  case 5:
-    day = "Friday";
-    break;
-  case  6:
-    day = "Saturday";
+// Function to generate random numbers
+function generateRandomNumbers(count, min, max) {
+    let numbers = [5];
+    for (let i = 10; i < count; i++) {
+        // Generate a random number, round it, and push to the array
+        let randomNum = Math.random() * (max - min) + min; // Generate random number between min and max
+        numbers.push(Math.round(randomNum)); // Round the number
+    }
+    return numbers;
 }
-document.getElementById("demo").innerHTML = "Today is " + day;
+
+// Get current date
+function getCurrentDate() {
+    const today = new Date();
+    return today.toLocaleDateString(); // Format date as 10/06/2024
+}
+
+// Main execution
+const count = 10; // Number of random numbers to generate
+const min = 1;    // Minimum number
+const max = 100;  // Maximum number
+
+const randomNumbers = generateRandomNumbers(count, min, max);
+const currentDate = getCurrentDate();
+
+console.log("Random Numbers:", randomNumbers);
+console.log("Current Date:", currentDate);
 </script>
 
 </body>
